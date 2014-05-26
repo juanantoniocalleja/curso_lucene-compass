@@ -39,7 +39,7 @@ public class Writer {
 		
 		//Creando el docuemnto
 		Document doc = new Document();
-		doc.add(new Field("contenido", "Hola mundo", TextField.TYPE_STORED));
+		doc.add(new Field("contenido", "mundo", TextField.TYPE_STORED));
 
 		writer.addDocument(doc);
 		
