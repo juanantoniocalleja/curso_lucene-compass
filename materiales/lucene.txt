@@ -1,0 +1,8 @@
+Lucene
+======
+
+Tipos de campos (fields):
+- Text (por defecto). Contenido almacenado, indexado y analizado (tokenizado)
+- UnStore. Es como un text pero no almacenado
+- Keyword. Contenido almacenado e indexado
+- UnKeyWord. Es como un keyword pero no indexado
