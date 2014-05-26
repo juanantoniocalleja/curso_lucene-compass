@@ -65,3 +65,7 @@ public class Writer {
 		System.out.println("Directorio: " + dirArchivos + " indexado (" + (fin.getTime() - inicio.getTime()) + " mseg)");
 	}
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> cbeccd47d32330557a7b520738666676e9db9089
