@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery.js"></script>
+		<script src="elasticsearch.jquery.js"></script>
+		<script>
+			var client = new $.es.Client({
+				hosts : 'localhost:9200'
+			});
+
+			// TODO: Refactorizar con JSRender o similar
+			var imprimirResultado = function(hits) {
+				var html = "<table><tr>" +
+					"<th>Id</th>" +
+					"<th>First Name</th>" +
+					"<th>Last Name</th>"  +
+					"<th>Age</th>" +
+					"<th>About</th>" +
+					"<th>Interests</th>";
+					
+				var resultado = $("#resultado");
+				for (var i in hits) {
+					var id = hits[i]._id;
+					var e = hits[i]._source;
+					
+					html += "<tr>" +
+							"<td>" + id + "</td>" +
+							"<td>" + e.first_name + "</td>" +
+							"<td>" + e.last_name + "</td>" +
+							"<td>" + e.age + "</td>" +
+							"<td>" + e.about + "</td>" +
+							"<td>" + JSON.stringify(e.interests) + "</td>" +
+						"</tr>";						
+				}
+				
+				html += "</table>";
+				$("#resultado").html(html);
+			}
+			
+			var buscar = function(query) {
+				client.search({
+					index : 'megacorp',
+					type : 'employee',
+					body : {
+						query : {
+							query_string : {
+								default_field : 'first_name',
+								query : query
+							}
+						}
+					}
+				}).then(function(resp) {
+					var hits = resp.hits.hits;
+					imprimirResultado(hits);
+				}, function(err) {
+					console.trace(err.message);
+				});				
+			}
+			
+			$(document).ready(function() {
+				$("#btnBusqueda").click(function() {
+					var query = $("#query").val();
+					buscar(query);
+				})
+			})
+		</script>
+		<style>
+			body {
+				text-align: center;
+			}
+			div table {
+				margin-right: auto;
+				margin-left: auto;
+			}
+		</style>
+	</head>
+	<body>
+		Búsqueda: 
+		<input type="text" id="query"/><br/>
+		<input type="button" id="btnBusqueda" value="Búsqueda"/><br/>
+		<div id="resultado">
+			Aquí van los resultados
+		</div>
+	</body>
+</html>
