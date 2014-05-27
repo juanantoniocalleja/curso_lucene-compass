@@ -136,17 +136,22 @@ public class SampleBookRepositoryTest {
         assertThat(books.getNumberOfElements(), is(equalTo(1)));
     }
 
-    /*@Test
+    /*
+    @Test
     public void shouldExecuteCustomSearchQuery(){
         Book book1 = new Book(RandomStringUtils.random(5),"Custom Query",System.currentTimeMillis());
         Book book2 = new Book(RandomStringUtils.random(5),"Elasticsearch QueryBuilder",System.currentTimeMillis());
         //bulk indexing two documents
         repository.save(Arrays.asList(book1, book2));
-        QueryBuilder queryBuilder = QueryBuilders.fieldQuery("name",book1.getName());
+        QueryBuilder queryBuilder = QueryBuilders.fieldQuery(
+        		"name",book1.getName());
+        
         //searching in elasticsearch using repository Page<E> search(QueryBuilder q, PageRequest p ) method.
         Page<Book> books =  repository.search(queryBuilder,new PageRequest(0,20));
+        
         assertThat(books.getNumberOfElements(),is(equalTo(1)));
-    }*/
+    }
+    */
 
     @Test
     public void shouldReturnBooksForCustomMethodsWithAndCriteria(){
@@ -187,7 +192,8 @@ public class SampleBookRepositoryTest {
 		repository.save(Arrays.asList(book1,book2));
 
 		SearchQuery searchQuery = new NativeSearchQueryBuilder()
-				.withQuery(nestedQuery("buckets", termQuery("buckets.1", "test3")))
+				.withQuery(nestedQuery("buckets", 
+						termQuery("buckets.1", "test3")))
 				.build();
 
 		Page<Book> books = repository.search(searchQuery);

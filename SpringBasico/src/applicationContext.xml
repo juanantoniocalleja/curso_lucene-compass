@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	
+	<context:annotation-config/><!-- Activa las anotaciones! -->
+	<context:component-scan base-package="bean"/>
+	
+	<!-- bean id="envoltorio" class="Envoltorio">
+		<constructor-arg name="nombre">
+			<value>Juan</value>
+		</constructor-arg>
+	</bean>
+
+
+	<bean id="holaMundo" class="HelloWorld">
+		<property name="envoltorio" ref="envoltorio"/>
+	</bean-->	
+</beans>

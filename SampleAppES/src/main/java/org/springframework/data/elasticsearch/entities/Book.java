@@ -10,7 +10,8 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-@Document(indexName = "book",type = "book" , shards = 1, replicas = 0, indexStoreType = "memory", refreshInterval = "-1")
+@Document(indexName = "book",type = "book" , shards = 1, replicas = 0, 
+indexStoreType = "memory", refreshInterval = "-1")
 public class Book {
 
     @Id
