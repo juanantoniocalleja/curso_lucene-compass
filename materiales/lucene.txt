@@ -6,3 +6,6 @@ Tipos de campos (fields):
 - UnStore. Es como un text pero no almacenado
 - Keyword. Contenido almacenado e indexado
 - UnKeyWord. Es como un keyword pero no indexado
+
+Deben escaparse los siguientes caracteres:
+\ + - ! ( ) : ^ ] { } ~ * ?

@@ -1,0 +1,20 @@
+Lucene NRT (Near-RealTime)
+- http://blog.mikemccandless.com/2011/06/lucenes-near-real-time-search-is-fast.html
+
+Por qué optimize fue eliminado de Lucene
+- http://blog.trifork.com/2011/11/21/simon-says-optimize-is-bad-for-you/
+
+ElasticSearch
+=============
+
+Solr vs. ElasticSearch
+- http://stackoverflow.com/questions/10213009/solr-vs-elasticsearch
+- http://solr-vs-elasticsearch.com/
+- http://stackoverflow.com/questions/2271600/elasticsearch-sphinx-lucene-solr-xapian-which-fits-for-which-usage/2288211#2288211
+- http://blog.socialcast.com/realtime-search-solr-vs-elasticsearch/
+
+ElasticSearch JS client
+- http://www.elasticsearch.org/guide/en/elasticsearch/client/javascript-api/current/quick-start.html
+
+Why should I NOT use ElasticSearch as my primary datastore?
+- http://www.quora.com/Why-should-I-NOT-use-ElasticSearch-as-my-primary-datastore
